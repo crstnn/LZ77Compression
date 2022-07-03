@@ -1,7 +1,5 @@
 from LZ77Compression.Utils.huffman_tree import Vertex
 
-# FROM MY FIT2004 submission (adjusted and refactored)
-
 
 class MinHeap:
     """Standard minimum heap"""
@@ -38,7 +36,7 @@ class MinHeap:
 
     def add_vertex(self, vertex: Vertex):
         self.elements.append(vertex)
-        self._percolate_up(len(self.elements)-1)
+        self._percolate_up(len(self.elements) - 1)
 
     def pop_min(self) -> Vertex:
         self.elements[0], self.elements[-1] = self.elements[-1], self.elements[0]  # swap element places
