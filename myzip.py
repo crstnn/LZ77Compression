@@ -89,6 +89,7 @@ def zip_file(txt: str, file_name: str, search_window_size: int = 1000, lookahead
 
 
 def main():
+    """CLI input: python myzip.py <inputfilename> <search window> <lookahead_buffer>"""
     file_name: str = sys.argv[1]
     text: str = open(file_name, "r").read()
     search_window_size: int = int(sys.argv[2])

@@ -33,6 +33,7 @@ def unzip_file(encoding: bitarray):
 
 
 def main():
+    """CLI input: python myunzip.py <inputfilename>.bin"""
     file_name_to_read: str = sys.argv[1]
     file_content_bits = bitarray()
     with open(file_name_to_read, 'rb') as f:
