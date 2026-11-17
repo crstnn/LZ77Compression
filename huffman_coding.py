@@ -33,6 +33,11 @@ def create_huffman_table(sequence: str) -> tuple[bitarray, ...]:
         min_heap.add_vertex(new_vert)
 
     root = min_heap.pop_min()
+    if root.is_leaf():
+        # Lone symbol gets the code '0'
+        only_symbol = root
+        root = Vertex(only_symbol.count)
+        root.set_children(only_symbol, None)
 
     encodings_by_unicode_value = tuple(bitarray() if s != 0 else None for s in symbol_count)
 
