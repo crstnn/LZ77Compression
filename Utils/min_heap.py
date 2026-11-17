@@ -1,4 +1,4 @@
-from LZ77Compression.Utils.huffman_tree import Vertex
+from Utils.huffman_tree import Vertex
 
 
 class MinHeap:

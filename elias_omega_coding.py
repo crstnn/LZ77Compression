@@ -1,7 +1,7 @@
 #!/usr/bin/python3.10
 from bitarray import bitarray
 
-from LZ77Compression.Utils.convert_base import convert_base_10_to_2, convert_base_2_to_10
+from Utils.convert_base import convert_base_10_to_2, convert_base_2_to_10
 
 
 def elias_encode(number: int) -> bitarray:

@@ -3,12 +3,12 @@ import sys
 
 from bitarray import bitarray
 
-from LZ77Compression.LZ77 import lz_77_decode_binary
-from LZ77Compression.Utils.convert_base import convert_base_2_to_10
-from LZ77Compression.Utils.huffman_tree import Vertex
-from LZ77Compression.elias_omega_coding import elias_generalised_decode
-from LZ77Compression.huffman_coding import create_huffman_tree
-from LZ77Compression.myzip import decode_character_metadata, ASCII_FIXED_BINARY_WIDTH
+from LZ77 import lz_77_decode_binary
+from Utils.convert_base import convert_base_2_to_10
+from Utils.huffman_tree import Vertex
+from elias_omega_coding import elias_generalised_decode
+from huffman_coding import create_huffman_tree
+from myzip import decode_character_metadata, ASCII_FIXED_BINARY_WIDTH
 
 
 def unzip_bits(encoding: bitarray, number_of_chars_file_contents: int, start_index: int = 0) -> str:

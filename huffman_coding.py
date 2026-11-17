@@ -1,7 +1,7 @@
 #!/usr/bin/python3.10
 from bitarray import bitarray
-from LZ77Compression.Utils.huffman_tree import Vertex
-from LZ77Compression.Utils.min_heap import MinHeap
+from Utils.huffman_tree import Vertex
+from Utils.min_heap import MinHeap
 
 
 def create_huffman_table(sequence: str) -> tuple[bitarray, ...]:
@@ -33,18 +33,21 @@ def create_huffman_table(sequence: str) -> tuple[bitarray, ...]:
         min_heap.add_vertex(new_vert)
 
     root = min_heap.pop_min()
+    if root.is_leaf():
+        # Lone symbol gets the code '0'
+        only_symbol = root
+        root = Vertex(only_symbol.count)
+        root.set_children(only_symbol, None)
 
     encodings_by_unicode_value = tuple(bitarray() if s != 0 else None for s in symbol_count)
 
-    visited = [False] * (Vertex.vertex_id_counter * (Vertex.vertex_id_counter + 1))  # finished tree has n(n-1) vertices
     current_encoding = bitarray()
 
     def dfs(v):
-        visited[v.id] = True
         if v.is_leaf():
             encodings_by_unicode_value[char_to_idx(v.char)].extend(current_encoding)
         for (bin_e_num, child_edge) in v.get_children():  # traverse down the two (binary) edges
-            if child_edge is not None and not visited[child_edge.id]:
+            if child_edge is not None:
                 current_encoding.append(bin_e_num)
                 dfs(child_edge)
                 current_encoding.pop()

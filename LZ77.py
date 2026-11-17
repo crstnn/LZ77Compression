@@ -2,10 +2,10 @@
 from collections import namedtuple
 from bitarray import bitarray
 
-from LZ77Compression.Utils.gusfields_z_alg import z_alg
-from LZ77Compression.Utils.huffman_tree import Vertex
-from LZ77Compression.elias_omega_coding import elias_generalised_decode, elias_generalised_encode
-from LZ77Compression.huffman_coding import huffman_encode, huffman_decode
+from Utils.gusfields_z_alg import z_alg
+from Utils.huffman_tree import Vertex
+from elias_omega_coding import elias_generalised_decode, elias_generalised_encode
+from huffman_coding import huffman_encode, huffman_decode
 
 EncodingTriple = namedtuple("EncodingTriple", ["offset", "length", "next_unmatched_symbol"])
 

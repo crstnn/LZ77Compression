@@ -3,10 +3,10 @@ import sys
 
 from bitarray import bitarray
 
-from LZ77Compression.LZ77 import lz_77_encode_binary
-from LZ77Compression.Utils.convert_base import convert_base_2_to_10, convert_base_10_to_2_fixed_width
-from LZ77Compression.elias_omega_coding import elias_generalised_decode, elias_generalised_encode
-from LZ77Compression.huffman_coding import create_huffman_table
+from LZ77 import lz_77_encode_binary
+from Utils.convert_base import convert_base_2_to_10, convert_base_10_to_2_fixed_width
+from elias_omega_coding import elias_generalised_decode, elias_generalised_encode
+from huffman_coding import create_huffman_table
 
 ASCII_FIXED_BINARY_WIDTH = 8
 
