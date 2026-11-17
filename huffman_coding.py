@@ -1,7 +1,7 @@
 #!/usr/bin/python3.10
 from bitarray import bitarray
-from LZ77Compression.Utils.huffman_tree import Vertex
-from LZ77Compression.Utils.min_heap import MinHeap
+from Utils.huffman_tree import Vertex
+from Utils.min_heap import MinHeap
 
 
 def create_huffman_table(sequence: str) -> tuple[bitarray, ...]:
