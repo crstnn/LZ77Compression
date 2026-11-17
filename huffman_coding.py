@@ -41,15 +41,13 @@ def create_huffman_table(sequence: str) -> tuple[bitarray, ...]:
 
     encodings_by_unicode_value = tuple(bitarray() if s != 0 else None for s in symbol_count)
 
-    visited = set()  # vertex ids; Vertex.vertex_id_counter never resets, so a list sized from it grew every call
     current_encoding = bitarray()
 
     def dfs(v):
-        visited.add(v.id)
         if v.is_leaf():
             encodings_by_unicode_value[char_to_idx(v.char)].extend(current_encoding)
         for (bin_e_num, child_edge) in v.get_children():  # traverse down the two (binary) edges
-            if child_edge is not None and child_edge.id not in visited:
+            if child_edge is not None:
                 current_encoding.append(bin_e_num)
                 dfs(child_edge)
                 current_encoding.pop()
